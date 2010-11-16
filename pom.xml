@@ -1,33 +1,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.htmlrendertest</groupId>
-	<artifactId>HtmlRenderTest</artifactId>
-	<version>1.0-SNAPSHOT</version>
+    <groupId>org.htmlrendertest</groupId>
+    <artifactId>HtmlRenderTest</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-	<name>A Jasmine Project</name>
-	<url>http://github.com/searls/jasmine-maven-plugin</url>
+    <name>HtmlRenderTest Project</name>
 
-	<build>
-		<plugins>
+    <build>
+        <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>selenium-maven-plugin</artifactId>
                 <executions>
                     <!--<execution>-->
-                        <!--<id>start-selenium</id>-->
-                        <!--<phase>test-compile</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>start-server</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--<background>true</background>-->
-                            <!--<logOutput>true</logOutput>-->
-                            <!--<multiWindow>true</multiWindow>-->
-                            <!--<port>4545</port>-->
-                            <!--<userExtensions>${basedir}/src/main/javascript/user-extensions.js</userExtensions>-->
-                        <!--</configuration>-->
+                    <!--<id>start-selenium</id>-->
+                    <!--<phase>test-compile</phase>-->
+                    <!--<goals>-->
+                    <!--<goal>start-server</goal>-->
+                    <!--</goals>-->
+                    <!--<configuration>-->
+                    <!--<background>true</background>-->
+                    <!--<logOutput>true</logOutput>-->
+                    <!--<multiWindow>true</multiWindow>-->
+                    <!--<port>4545</port>-->
+                    <!--<userExtensions>${basedir}/src/main/javascript/user-extensions.js</userExtensions>-->
+                    <!--</configuration>-->
                     <!--</execution>-->
                     <execution>
                         <id>execute-selenese-test</id>
@@ -44,7 +43,7 @@
                     </execution>
                 </executions>
             </plugin>
-		</plugins>
-	</build>
+        </plugins>
+    </build>
 
 </project>
