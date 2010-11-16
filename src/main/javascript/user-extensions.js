@@ -1,5 +1,6 @@
-Selenium.prototype.getBrowserWidth = function(width) {
-    Assert.fail();
+Selenium.prototype.getBrowserWidth = function(locator, text) {
+    //TODO: also test with chrome and iexplore
+    return this.browserbot.getUserWindow().outerWidth;
 };
 
 Selenium.prototype.assertEquals = function(source, target) {

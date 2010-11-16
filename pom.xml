@@ -25,7 +25,6 @@
                     <!--<logOutput>true</logOutput>-->
                     <!--<multiWindow>true</multiWindow>-->
                     <!--<port>4545</port>-->
-                    <!--<userExtensions>${basedir}/src/main/javascript/user-extensions.js</userExtensions>-->
                     <!--</configuration>-->
                     <!--</execution>-->
                     <execution>
@@ -39,6 +38,7 @@
                             <startURL>http://www.google.com</startURL>
                             <suite>${basedir}/src/test/selenese/testSuite.html</suite>
                             <port>4545</port>
+                            <userExtensions>${basedir}/src/main/javascript/user-extensions.js</userExtensions>
                         </configuration>
                     </execution>
                 </executions>
