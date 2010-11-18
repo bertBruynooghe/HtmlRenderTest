@@ -38,12 +38,19 @@
                             <startURL>http://www.google.com</startURL>
                             <suite>${basedir}/src/test/selenese/testSuite.html</suite>
                             <port>4545</port>
-                            <userExtensions>${basedir}/src/main/javascript/user-extensions.js</userExtensions>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.htmlparser</groupId>
+            <artifactId>htmlparser</artifactId>
+            <version>1.6</version>
+        </dependency>
+
+    </dependencies>
 
 </project>

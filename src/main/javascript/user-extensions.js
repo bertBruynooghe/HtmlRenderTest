@@ -8,4 +8,6 @@ Selenium.prototype.assertEquals = function(source, target) {
         Assert.fail("" + source + "is not equal to " + target);
 };
 
-
+Selenium.prototype.getNumberOfVerticalScrollSteps = function(locator, text) {
+    return 0;
+}
