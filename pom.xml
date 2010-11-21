@@ -58,16 +58,10 @@
         </dependency>
 
         <dependency>
-            <groupId>org.htmlparser</groupId>
-            <artifactId>htmlparser</artifactId>
-            <version>1.6</version>
+            <groupId>nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.6.2</version>
         </dependency>
-
-        <!--<dependency>-->
-        <!--<groupId>nekohtml</groupId>-->
-        <!--<artifactId>nekohtml</artifactId>-->
-        <!--<version>1.9.6.2</version>-->
-        <!--</dependency>-->
 
         <dependency>
             <groupId>org.mockito</groupId>

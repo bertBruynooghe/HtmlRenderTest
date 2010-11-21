@@ -1,16 +1,15 @@
 import com.thoughtworks.selenium.CommandProcessor;
 import junit.framework.Assert;
-import org.htmlparser.Node;
-import org.htmlparser.Parser;
-import org.htmlparser.filters.CssSelectorNodeFilter;
-import org.htmlparser.util.NodeIterator;
-import org.htmlparser.util.ParserException;
+import org.cyberneko.html.parsers.DOMParser;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class SeleniumExtension {
     private final CommandProcessor commandProcessor;
@@ -27,27 +26,32 @@ public class SeleniumExtension {
     }
 
     public void processSeleneseCommand(Node tr1, Node tr2, Node tr3) {
-        this.runCommand(tr1.getFirstChild().getText(), tr2.getFirstChild().getText(), tr3.getFirstChild().getText());
+        this.runCommand(tr1.getFirstChild().getNodeValue(), tr2.getFirstChild().getNodeValue(), tr3.getFirstChild().getNodeValue());
     }
 
-    public void processSeleneseTestCase(File file) throws FileNotFoundException, ParserException {
-        Scanner scanner = new Scanner(file);
-        StringBuffer buffer = new StringBuffer();
+    public void processSeleneseTestCase(File file) throws FileNotFoundException {
         try {
-            while (scanner.hasNextLine())
-                buffer.append(scanner.nextLine());
+            DOMParser parser = new DOMParser();
+            parser.parse(new InputSource(file.getPath()));
+            Document document = parser.getDocument();
+            //TODO: do this using XPath instead...
+            Node tBody = document.getElementsByTagName("tbody").item(0);
+            NodeList trCandidateList = tBody.getChildNodes();
+            for (int i = 0; i < trCandidateList.getLength(); i++) {
+                Node trCandidate = trCandidateList.item(i);
+                if (trCandidate.getNodeName().equals("TR")) {
+                    NodeList tdCandidateList = trCandidate.getChildNodes();
+                    List<Node> tdList = new ArrayList<Node>();
+                    for (int j = 0; j < tdCandidateList.getLength(); j++)
+                        if (tdCandidateList.item(j).getNodeName().equals("TD"))
+                            tdList.add(tdCandidateList.item(j));
+                    processSeleneseCommand(tdList.get(0), tdList.get(1), tdList.get(2));
+                }
+            }
         }
-        finally {
-            scanner.close();
+        catch (Exception e) {
+            throw new RuntimeException(e);
         }
-
-        Parser parser = new Parser(buffer.toString());
-
-        NodeIterator nodeIterator = parser.extractAllNodesThatMatch(new CssSelectorNodeFilter("table td")).elements();
-        //TODO: seems we have problems expressing "tbody tr"; above expression is plain wrong
-        List<Node> list = new ArrayList<Node>();
-        while (nodeIterator.hasMoreNodes())
-            list.add(nodeIterator.nextNode());
 
 
     }
