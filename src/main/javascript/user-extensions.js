@@ -8,6 +8,9 @@ Selenium.prototype.assertEquals = function(source, target) {
         Assert.fail("" + source + "is not equal to " + target);
 };
 
-Selenium.prototype.getNumberOfVerticalScrollSteps = function(locator, text) {
-    return 0;
+Selenium.prototype.getNumberOfVerticalScrollSteps = function(locator) {
+    var element = this.page().findElement(locator);
+    return Math.ceil(element.scrollHeight / element.offsetHeight);
 }
+
+
