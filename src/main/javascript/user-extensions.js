@@ -13,4 +13,9 @@ Selenium.prototype.getNumberOfVerticalScrollSteps = function(locator) {
     return Math.ceil(element.scrollHeight / element.offsetHeight);
 }
 
+Selenium.prototype.doScrollDown = function(locator) {
+    var element = this.page().findElement(locator);
+    element.scrollTop += element.offsetHeight;
+}
+
 
