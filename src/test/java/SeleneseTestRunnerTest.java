@@ -10,20 +10,20 @@ import java.io.FileNotFoundException;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class SeleniumExtensionTest {
+public class SeleneseTestRunnerTest {
     @Mock
     private CommandProcessor processor;
 
-    private SeleniumExtension seleniumExtension;
+    private SeleneseTestRunner seleneseTestRunner;
 
     @Before
     public void setUp() {
-        seleniumExtension = new SeleniumExtension(processor);
+        seleneseTestRunner = new SeleneseTestRunner(processor);
     }
 
     @Test
     public void process_selenese_testcase_calls_command_processor() throws FileNotFoundException {
-        seleniumExtension.processSeleneseTestCase("/src/test/java/seleneseTestCase.html");
+        seleneseTestRunner.runTestCase("/src/test/java/dummySeleneseTestCase.html");
         verify(processor).doCommand("command", new String[]{"arg1", "arg2"});
     }
 }
