@@ -4,8 +4,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.xml.sax.SAXException;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.mockito.Mockito.verify;
 
@@ -22,7 +23,7 @@ public class SeleneseTestRunnerTest {
     }
 
     @Test
-    public void process_selenese_testcase_calls_command_processor() throws FileNotFoundException {
+    public void run_testcase_calls_command_processor() throws IOException, SAXException {
         seleneseTestRunner.runTestCase("/src/test/java/dummySeleneseTestCase.html");
         verify(processor).doCommand("command", new String[]{"arg1", "arg2"});
     }

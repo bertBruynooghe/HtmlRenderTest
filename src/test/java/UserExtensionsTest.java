@@ -4,6 +4,9 @@ import com.thoughtworks.selenium.Selenium;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.xml.sax.SAXException;
+
+import java.io.IOException;
 
 public class UserExtensionsTest {
     private static Selenium selenium;
@@ -24,17 +27,17 @@ public class UserExtensionsTest {
     }
 
     @Test
-    public void assertEqualsTest() {
+    public void assertEqualsTest() throws IOException, SAXException {
         seleneseTestRunner.runTestCase("src/test/selenese/testcase/assertEqualsTest.html");
     }
 
     @Test
-    public void runBrowserWidthTest() {
+    public void runBrowserWidthTest() throws IOException, SAXException {
         seleneseTestRunner.runTestCase("src/test/selenese/testcase/browserWidthTest.html");
     }
 
     @Test
-    public void testVerticalScrollFunctionality() {
+    public void testVerticalScrollFunctionality() throws IOException, SAXException {
         seleneseTestRunner.runTestCase("src/test/selenese/testcase/getNumberOfVerticalScrollStepsTest.html");
     }
 
