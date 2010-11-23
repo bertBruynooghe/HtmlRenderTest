@@ -15,11 +15,19 @@
     </thead>
     <tbody>
     <tr>
+        <td>open</td>
+        <td>about:blank</td>
+        <td></td>
+    </tr>
+    <tr>
         <td>runScript</td>
-        <td>var scrollable = document.createElement('div');<br/> scrollable.setAttribute('id', 'scrollable');<br/>
-            scrollable.setAttribute('style', 'height:100; overflow-y:scroll');<br/> var tooBigThing =
-            document.createElement('div');<br/> tooBigThing.setAttribute('style', 'height:200; width:100;
-            background:red;');<br/> scrollable.appendChild(tooBigThing);<br/> document.body.appendChild(scrollable);
+        <td>var scrollable = document.createElement('div');
+            scrollable.setAttribute('id', 'scrollable');
+            scrollable.setAttribute('style', 'height:100; overflow-y:scroll');
+            var tooBigThing = document.createElement('div');
+            tooBigThing.setAttribute('style', 'height:200; width:100; background:red;');
+            scrollable.appendChild(tooBigThing);
+            document.body.appendChild(scrollable);
         </td>
         <td></td>
     </tr>
@@ -38,6 +46,7 @@
         <td>this.browserbot.findElement(&quot;id=scrollable&quot;).scrollTop</td>
         <td>100</td>
     </tr>
+
 
     </tbody>
 </table>
