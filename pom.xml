@@ -41,19 +41,6 @@
                             <userExtensions>${basedir}/src/main/javascript/user-extensions.js</userExtensions>
                         </configuration>
                     </execution>
-                    <!--<execution>-->
-                    <!--<id>execute-selenese-test</id>-->
-                    <!--<phase>test</phase>-->
-                    <!--<goals>-->
-                    <!--<goal>selenese</goal>-->
-                    <!--</goals>-->
-                    <!--<configuration>-->
-                    <!--<browser>*firefox</browser>-->
-                    <!--<startURL>http://www.google.com</startURL>-->
-                    <!--<suite>${basedir}/src/test/selenese/testSuite.html</suite>-->
-                    <!--<port>4545</port>-->
-                    <!--</configuration>-->
-                    <!--</execution>-->
                 </executions>
             </plugin>
         </plugins>
