@@ -1,3 +1,5 @@
+package org.selenium.extensions;
+
 import com.thoughtworks.selenium.CommandProcessor;
 import org.cyberneko.html.parsers.DOMParser;
 import org.w3c.dom.Document;

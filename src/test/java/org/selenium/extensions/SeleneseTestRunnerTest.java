@@ -1,3 +1,5 @@
+package org.selenium.extensions;
+
 import com.thoughtworks.selenium.CommandProcessor;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,7 +26,7 @@ public class SeleneseTestRunnerTest {
 
     @Test
     public void run_testcase_calls_command_processor() throws IOException, SAXException {
-        seleneseTestRunner.runTestCase("/src/test/java/dummySeleneseTestCase.html");
+        seleneseTestRunner.runTestCase("/src/test/java/org/selenium/extensions/dummySeleneseTestCase.html");
         verify(processor).doCommand("command", new String[]{"arg1", "arg2"});
     }
 }

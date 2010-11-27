@@ -1,3 +1,5 @@
+package org.selenium.extensions;
+
 import com.thoughtworks.selenium.CommandProcessor;
 import com.thoughtworks.selenium.DefaultSelenium;
 

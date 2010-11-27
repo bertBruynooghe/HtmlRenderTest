@@ -1,9 +1,12 @@
+package userextensions;
+
 import com.thoughtworks.selenium.DefaultSelenium;
 import com.thoughtworks.selenium.HttpCommandProcessor;
 import com.thoughtworks.selenium.Selenium;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.selenium.extensions.SeleneseTestRunner;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
