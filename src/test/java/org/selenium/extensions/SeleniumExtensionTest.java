@@ -5,7 +5,7 @@ import com.thoughtworks.selenium.DefaultSelenium;
 import junit.framework.Assert;
 import org.junit.Test;
 
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 public class SeleniumExtensionTest {
     @Test
