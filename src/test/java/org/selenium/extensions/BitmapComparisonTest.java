@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BitmapComparisonTest {
-    public static final int DIFF_COLOR = 0x00ff00;
+    public static final int DIFF_COLOR = 0xFF00FF00;
 
     @Mock
     private BufferedImage image1;
@@ -34,7 +34,7 @@ public class BitmapComparisonTest {
         when(image1.getRGB(0, 0)).thenReturn(0xffffff);
         when(image2.getRGB(0, 0)).thenReturn(0x000000);
         BitmapComparison comparison = new BitmapComparison(image1, image2, DIFF_COLOR);
-        assertEquals(DIFF_COLOR | 0xff000000, comparison.getDifference().getRGB(0, 0));
+        assertEquals(DIFF_COLOR, comparison.getDifference().getRGB(0, 0));
         assertTrue(comparison.isDifferent());
     }
 
