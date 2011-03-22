@@ -17,7 +17,7 @@ public class UserExtensionsTest {
 
     @BeforeClass
     static public void beforeClass() {
-        HttpCommandProcessor processor = new HttpCommandProcessor("beantn0a000189", 4545, "*firefox", "http://localhost");
+        HttpCommandProcessor processor = new HttpCommandProcessor("localhost", 4545, "*firefox", "http://localhost");
         seleneseTestRunner = new SeleneseTestRunner(processor);
         selenium = new DefaultSelenium(processor);
         selenium.start();
