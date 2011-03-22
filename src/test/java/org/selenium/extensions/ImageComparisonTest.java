@@ -12,7 +12,7 @@ import static junit.framework.Assert.*;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BitmapComparisonTest {
+public class ImageComparisonTest {
     public static final int DIFF_COLOR = 0xFF00FF00;
 
     @Mock
@@ -25,6 +25,7 @@ public class BitmapComparisonTest {
     public void setUp() throws Exception {
         when(image1.getHeight()).thenReturn(1);
         when(image1.getWidth()).thenReturn(1);
+        when(image1.getType()).thenReturn(BufferedImage.TYPE_INT_ARGB);
         when(image2.getHeight()).thenReturn(1);
         when(image2.getWidth()).thenReturn(1);
     }
@@ -33,7 +34,7 @@ public class BitmapComparisonTest {
     public void testDifference() throws Exception {
         when(image1.getRGB(0, 0)).thenReturn(0xffffff);
         when(image2.getRGB(0, 0)).thenReturn(0x000000);
-        BitmapComparison comparison = new BitmapComparison(image1, image2, DIFF_COLOR);
+        ImageComparison comparison = new ImageComparison(image1, image2, DIFF_COLOR);
         assertEquals(DIFF_COLOR, comparison.getDifference().getRGB(0, 0));
         assertTrue(comparison.isDifferent());
     }
@@ -42,7 +43,7 @@ public class BitmapComparisonTest {
     public void testPixelEquality() throws Exception {
         when(image1.getRGB(0, 0)).thenReturn(0xffffff);
         when(image2.getRGB(0, 0)).thenReturn(0xffffff);
-        BitmapComparison comparison = new BitmapComparison(image1, image2, DIFF_COLOR);
+        ImageComparison comparison = new ImageComparison(image1, image2, DIFF_COLOR);
         assertEquals(0, comparison.getDifference().getRGB(0, 0));
         assertFalse(comparison.isDifferent());
     }
