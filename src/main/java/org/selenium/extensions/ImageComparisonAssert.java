@@ -21,7 +21,7 @@ public class ImageComparisonAssert {
 
     public static void assertEquals(BufferedImage img1, BufferedImage img2) {
         ComparisonReportFactory comparisonReportFactory =
-                new ComparisonReportFactory(new ImageComparisonFactory(), 0xFF00FF00);
+                new ComparisonReportFactory(new ImageComparisonFactory(0xFF00FF00));
         new ImageComparisonAssert(comparisonReportFactory).assertImageEquals(img1, img2);
     }
 }
