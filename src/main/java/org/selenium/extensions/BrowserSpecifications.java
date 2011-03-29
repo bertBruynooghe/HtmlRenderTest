@@ -3,6 +3,8 @@ package org.selenium.extensions;
 import com.thoughtworks.selenium.Selenium;
 
 public class BrowserSpecifications {
+    //TODO: move this code to userExtensions.js
+
     String platform;
     String userAgent;
     String version;

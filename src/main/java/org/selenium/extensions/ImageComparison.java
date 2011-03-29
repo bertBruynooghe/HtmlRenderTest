@@ -25,7 +25,7 @@ public class ImageComparison {
         return difference;
     }
 
-    public boolean isDifferent() {
+    public boolean yieldsDifference() {
         return different;
     }
 }

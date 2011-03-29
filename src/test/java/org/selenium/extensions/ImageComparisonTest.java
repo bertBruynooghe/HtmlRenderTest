@@ -36,7 +36,7 @@ public class ImageComparisonTest {
         when(image2.getRGB(0, 0)).thenReturn(0x000000);
         ImageComparison comparison = new ImageComparison(image1, image2, DIFF_COLOR);
         assertEquals(DIFF_COLOR, comparison.getDifference().getRGB(0, 0));
-        assertTrue(comparison.isDifferent());
+        assertTrue(comparison.yieldsDifference());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class ImageComparisonTest {
         when(image2.getRGB(0, 0)).thenReturn(0xffffff);
         ImageComparison comparison = new ImageComparison(image1, image2, DIFF_COLOR);
         assertEquals(0, comparison.getDifference().getRGB(0, 0));
-        assertFalse(comparison.isDifferent());
+        assertFalse(comparison.yieldsDifference());
     }
 
 }
