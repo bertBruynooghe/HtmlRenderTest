@@ -36,7 +36,7 @@ public class ImageComparisonAssertTest {
     public void testAssertImageEqualsWhenNotEquals() throws Exception {
         when(comparisonReport.describesDifference()).thenReturn(true);
         try {
-            comparisonAssert.assertImageEquals(dummyImg, dummyImg);
+            comparisonAssert.assertEqual(dummyImg, dummyImg);
         } catch (AssertionFailedError error) {
             assertEquals("", error.getMessage());
             throw error;
@@ -46,7 +46,7 @@ public class ImageComparisonAssertTest {
     @Test
     public void testAssertImageEqualsWhenEquals() throws Exception {
         when(comparisonReport.describesDifference()).thenReturn(false);
-        comparisonAssert.assertImageEquals(dummyImg, dummyImg);
+        comparisonAssert.assertEqual(dummyImg, dummyImg);
     }
 
 

@@ -3,6 +3,7 @@ package org.selenium.extensions;
 import junit.framework.AssertionFailedError;
 
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class ImageComparisonAssert {
     private final ComparisonReportFactory reportFactory;
@@ -11,17 +12,17 @@ public class ImageComparisonAssert {
         this.reportFactory = reportFactory;
     }
 
-    public void assertImageEquals(BufferedImage img1, BufferedImage img2) {
+    public void assertEqual(BufferedImage img1, BufferedImage img2) throws IOException {
         ComparisonReport report = reportFactory.createComparisonReport(img1, img2);
         if (report.describesDifference()) {
-            String location = report.store("");
+            String location = report.store("", "", "");
             throw new AssertionFailedError("sdflkjs");
         }
     }
 
-    public static void assertEquals(BufferedImage img1, BufferedImage img2) {
+    public static void assertImageEquals(BufferedImage img1, BufferedImage img2) throws IOException {
         ComparisonReportFactory comparisonReportFactory =
                 new ComparisonReportFactory(new ImageComparisonFactory(0xFF00FF00));
-        new ImageComparisonAssert(comparisonReportFactory).assertImageEquals(img1, img2);
+        new ImageComparisonAssert(comparisonReportFactory).assertEqual(img1, img2);
     }
 }

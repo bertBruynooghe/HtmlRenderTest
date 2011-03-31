@@ -3,15 +3,19 @@ package org.selenium.extensions;
 import java.awt.image.BufferedImage;
 
 public class ImageComparison {
-    final private BufferedImage difference;
-    final private boolean different;
+    private final BufferedImage difference;
+    private final boolean different;
+    private final BufferedImage sourceImage;
+    private final BufferedImage targetImage;
 
-    public ImageComparison(BufferedImage image1, BufferedImage image2, int diffColor) {
+    public ImageComparison(BufferedImage sourceImage, BufferedImage targetImage, int diffColor) {
+        this.sourceImage = sourceImage;
+        this.targetImage = targetImage;
         boolean tmpDifferent = false;
-        difference = new BufferedImage(image1.getWidth(), image1.getHeight(), image1.getType());
-        for (int x = 0; x < image2.getWidth(); x++)
-            for (int y = 0; y < image2.getHeight(); y++) {
-                if (image1.getRGB(x, y) != image2.getRGB(x, y)) {
+        difference = new BufferedImage(sourceImage.getWidth(), sourceImage.getHeight(), sourceImage.getType());
+        for (int x = 0; x < targetImage.getWidth(); x++)
+            for (int y = 0; y < targetImage.getHeight(); y++) {
+                if (sourceImage.getRGB(x, y) != targetImage.getRGB(x, y)) {
                     difference.setRGB(x, y, diffColor);
                     tmpDifferent = true;
                 } else {
@@ -27,5 +31,13 @@ public class ImageComparison {
 
     public boolean yieldsDifference() {
         return different;
+    }
+
+    public BufferedImage getSourceImage() {
+        return sourceImage;
+    }
+
+    public BufferedImage getTargetImage() {
+        return targetImage;
     }
 }
