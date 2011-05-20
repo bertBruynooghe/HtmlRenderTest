@@ -56,11 +56,15 @@ public class SeleneseTestRunner {
                     if (tdCandidateList.item(j).getNodeName().equals("TD"))
                         tdList.add(tdCandidateList.item(j));
 
-                String secondArgument = "";
-                if (null != tdList.get(2) && null != tdList.get(2).getFirstChild())
-                    secondArgument = tdList.get(2).getFirstChild().getNodeValue();
-                processor.doCommand(tdList.get(0).getFirstChild().getNodeValue(), new String[]{tdList.get(1).getFirstChild().getNodeValue(), secondArgument});
+                processor.doCommand(getArgument(tdList, 0), new String[]{getArgument(tdList, 1), getArgument(tdList, 2)});
             }
         }
+    }
+
+    private String getArgument(List<Node> tdList, int index) {
+        String secondArgument = "";
+        if (null != tdList.get(index) && null != tdList.get(index).getFirstChild())
+            secondArgument = tdList.get(index).getFirstChild().getNodeValue();
+        return secondArgument;
     }
 }

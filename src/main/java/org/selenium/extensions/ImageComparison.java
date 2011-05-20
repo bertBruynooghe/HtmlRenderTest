@@ -26,7 +26,7 @@ public class ImageComparison {
         this.sourceImage = sourceImage;
         this.targetImage = targetImage;
         boolean tmpDifferent = false;
-        difference = new BufferedImage(sourceImage.getWidth(), sourceImage.getHeight(), sourceImage.getType());
+        difference = new BufferedImage(sourceImage.getWidth(), sourceImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
         for (int x = 0; x < targetImage.getWidth(); x++)
             for (int y = 0; y < targetImage.getHeight(); y++) {
                 if (sourceImage.getRGB(x, y) != targetImage.getRGB(x, y)) {

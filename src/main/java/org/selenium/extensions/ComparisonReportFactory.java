@@ -20,22 +20,15 @@ public class ComparisonReportFactory {
     public static final String DEFAULT_REPORT_TEMPLATE = "<html>" +
             "<body>" +
             "<h3>Stored screenshot</h3>" +
-            "<input id='maskCheck' type='checkbox' checked='true' onchange='mask.style.display=(maskCheck.checked)?\"block\":\"none\"'>" +
-            "mask<br>" +
-            "<input id='origCheck' type='checkbox' checked='true' onchange='orig.style.display=(origCheck.checked)?\"block\":\"none\"'>" +
-            "original" +
-            "<div style='position:relative; height:800px;'>" +
-            "<img src='%s' id='orig' style='position:absolute;'/>" +
-            "<img src='%s' id='mask' style='position:absolute;'/>" +
-            "</div>" +
+            "<img src='$SOURCE'/>" +
             "<h3>Current screenshot</h3>" +
             "<input id='diffCheck' type='checkbox' checked='true' onchange='diff.style.display=(diffCheck.checked)?\"block\":\"none\"'>" +
             "difference<br>" +
             "<input id='currCheck' type='checkbox' checked='true' onchange='curr.style.display=(currCheck.checked)?\"block\":\"none\"'>" +
             "current" +
-            "<div style='position:relative; height:800px;'>" +
-            "<img src='%s' style='position:absolute;' id='curr'/>" +
-            "<img src='%s' style='position:absolute;' id='diff'/>" +
+            "<div>" +
+            "<img src='$TARGET' style='position:absolute;' id='curr'/>" +
+            "<img src='$DIFFERENCE' style='position:absolute;' id='diff'/>" +
             "</div>" +
             "</body>" +
             "</html>";

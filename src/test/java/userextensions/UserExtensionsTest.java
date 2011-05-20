@@ -31,7 +31,7 @@ public class UserExtensionsTest {
 
     @BeforeClass
     static public void beforeClass() {
-        HttpCommandProcessor processor = new HttpCommandProcessor("localhost", 4545, "*googlechrome", "http://localhost");
+        HttpCommandProcessor processor = new HttpCommandProcessor("localhost", 4545, "*firefox", "http://localhost");
         seleneseTestRunner = new SeleneseTestRunner(processor);
         selenium = new DefaultSelenium(processor);
         selenium.start();
@@ -56,6 +56,11 @@ public class UserExtensionsTest {
     @Test
     public void testVerticalScrollFunctionality() throws IOException, SAXException {
         seleneseTestRunner.runTestCase("src/test/selenese/testcase/getNumberOfVerticalScrollStepsTest.html");
+    }
+
+    @Test
+    public void testInjectJQuery() throws Exception {
+        seleneseTestRunner.runTestCase("src/test/selenese/testcase/injectJQuery.html");
     }
 
 }
